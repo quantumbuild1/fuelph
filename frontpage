@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FuelPH - Real-Time Fuel Monitoring</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .blink {
+      animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- Header -->
+  <header class="text-center py-6 border-b border-gray-700">
+    <h1 class="text-3xl font-bold text-yellow-400">⛽ FuelPH - Real-Time Fuel Monitoring</h1>
+    <p class="text-sm text-gray-400">Live fuel prices, trip calculator, and maintenance tips for Lipa City</p>
+  </header>
+
+  <main class="p-6 max-w-6xl mx-auto space-y-10">
+
+    <!-- Section: Fuel Price Comparison -->
+    <section class="bg-gray-900 p-5 rounded shadow-lg">
+      <h2 class="text-2xl text-yellow-300 mb-4">📊 Fuel Price Comparison (Lipa City)</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead class="text-yellow-400 bg-gray-800">
+            <tr>
+              <th class="p-3 border border-gray-700 text-left">Brand</th>
+              <th class="p-3 border border-gray-700 text-center">Unleaded</th>
+              <th class="p-3 border border-gray-700 text-center">Diesel</th>
+              <th class="p-3 border border-gray-700 text-center">Premium</th>
+              <th class="p-3 border border-gray-700 text-center">Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-800">
+              <td class="p-3">Petron</td>
+              <td class="p-3 text-center blink text-green-400">₱65.10 ▼</td>
+              <td class="p-3 text-center">₱59.80</td>
+              <td class="p-3 text-center">₱69.00</td>
+              <td class="p-3 text-center text-gray-400">Aug 5, 11:45 AM</td>
+            </tr>
+            <tr class="border-b border-gray-800">
+              <td class="p-3">Shell</td>
+              <td class="p-3 text-center">₱65.30</td>
+              <td class="p-3 text-center blink text-red-400">₱59.90 ▲</td>
+              <td class="p-3 text-center">₱69.20</td>
+              <td class="p-3 text-center text-gray-400">Aug 5, 11:30 AM</td>
+            </tr>
+            <tr>
+              <td class="p-3">Caltex</td>
+              <td class="p-3 text-center">₱65.00</td>
+              <td class="p-3 text-center">₱59.70</td>
+              <td class="p-3 text-center">₱68.90</td>
+              <td class="p-3 text-center text-gray-400">Aug 5, 11:20 AM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section: Fuel Cost Calculator -->
+    <section class="bg-gray-900 p-5 rounded shadow-lg">
+      <h2 class="text-2xl text-yellow-300 mb-4">🧮 Fuel Cost Calculator</h2>
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="number" placeholder="Distance (km)" class="p-2 rounded bg-gray-800 text-white border border-gray-600">
+        <input type="number" placeholder="Fuel Consumption (km/l)" class="p-2 rounded bg-gray-800 text-white border border-gray-600">
+        <select class="p-2 rounded bg-gray-800 text-white border border-gray-600">
+          <option selected>Fuel Type: Unleaded</option>
+          <option>Diesel</option>
+          <option>Premium</option>
+        </select>
+        <input type="number" placeholder="Fuel Price per Liter (₱)" class="p-2 rounded bg-gray-800 text-white border border-gray-600">
+        <button type="button" class="md:col-span-2 bg-yellow-400 text-black py-2 px-4 rounded hover:bg-yellow-300 font-semibold">Calculate</button>
+      </form>
+      <div class="mt-4 text-lg text-green-400 font-bold">Estimated Fuel Cost: ₱___</div>
+    </section>
+
+    <!-- Section: Price Trends -->
+    <section class="bg-gray-900 p-5 rounded shadow-lg">
+      <h2 class="text-2xl text-yellow-300 mb-4">📈 Fuel Price Trend (Last 5 Days)</h2>
+      <div class="h-64 bg-black border border-gray-700 rounded flex items-center justify-center text-gray-500">
+        [ Chart.js or historical trend visualization here ]
+      </div>
+    </section>
+
+    <!-- Section: Car Maintenance - BLOWBAG -->
+    <section class="bg-gray-900 p-5 rounded shadow-lg">
+      <h2 class="text-2xl text-yellow-300 mb-4">🛠 BLOWBAG Car Safety Checklist</h2>
+      <ul class="list-disc ml-6 text-sm text-gray-300 space-y-1">
+        <li><b>Battery</b> – Check terminals, signs of corrosion, or delayed ignition.</li>
+        <li><b>Lights</b> – Test headlights, brake lights, signal lights regularly.</li>
+        <li><b>Oil</b> – Check dipstick and top up as needed (every 5,000 km).</li>
+        <li><b>Water</b> – Refill radiator and windshield washer when low.</li>
+        <li><b>Brakes</b> – Listen for squeaking, check pedal softness.</li>
+        <li><b>Air</b> – Tire pressure check every week or before long trips.</li>
+        <li><b>Gas</b> – Keep at least ¼ tank to avoid fuel pump damage.</li>
+      </ul>
+    </section>
+
+    <!-- Section: Price Submission Prompt -->
+    <section class="bg-gray-800 p-5 rounded shadow-lg text-center">
+      <h3 class="text-xl text-white mb-2">📩 Are You a Fuel Station Owner?</h3>
+      <p class="text-gray-400 mb-3">Send your station's daily fuel prices and get listed for free!</p>
+      <a href="#" class="bg-yellow-400 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-300">Submit Fuel Price</a>
+    </section>
+
+    <!-- Section: Login Prompt (Optional Features) -->
+    <section class="bg-gray-800 p-5 rounded shadow-lg text-center">
+      <h3 class="text-xl text-white mb-2">🔓 Unlock More Features</h3>
+      <p class="text-gray-400 mb-3">Log in to save stations, get fuel alerts, and track cost history.</p>
+      <a href="#" class="bg-gray-900 text-yellow-400 border border-yellow-400 px-4 py-2 rounded hover:bg-yellow-400 hover:text-black">Login to Unlock</a>
+    </section>
+
+  </main>
+
+  <footer class="text-center text-xs text-gray-500 mt-10 p-4 border-t border-gray-800">
+    &copy; 2025 FuelPH by Shoppzada.com — Built for smarter driving in the Philippines
+  </footer>
+
+</body>
+</html>
