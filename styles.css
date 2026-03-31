@@ -1,0 +1,32 @@
+.bg-fuelph {
+  background-color: #F3F4F6; /* Light grey background */
+}
+
+.text-fuelph {
+  color: #4F46E5; /* Purple text */
+}
+
+.flex-custom {
+  display: flex;
+  flex-direction: column;
+}
+
+.animation-fade {
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    max-width: 80%;
+  }
+}
+
+/* Additional custom classes */
+.btn-fuelph {
+  @apply bg-fuelph text-white font-bold py-2 px-4 rounded;
+  transition: background-color 0.3s ease;
+}
+
+.btn-fuelph:hover {
+  background-color: #4338CA; /* Darker purple on hover */
+}
