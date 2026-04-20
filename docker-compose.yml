@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: fuelph_db
+    environment:
+      POSTGRES_USER: fuelph_user
+      POSTGRES_PASSWORD: fuelph_password
+      POSTGRES_DB: fuelph
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fuelph_backend
+    environment:
+      DATABASE_URL: postgresql://fuelph_user:fuelph_password@db:5432/fuelph
+      NODE_ENV: production
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app/backend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fuelph_frontend
+    environment:
+      REACT_APP_API_URL: http://localhost:3000/api
+    ports:
+      - "3001:3000"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
