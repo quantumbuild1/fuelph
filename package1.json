@@ -1,0 +1,20 @@
+{
+  "name": "fuelph",
+  "version": "2.0.0",
+  "description": "Real-time fuel price tracking and monitoring for Philippines",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && npm test",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "lint": "cd backend && npm run lint && cd ../frontend && npm run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
